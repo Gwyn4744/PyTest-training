@@ -13,7 +13,7 @@ def fixture_init_calculator():
         (-3, 2, -1),
         (0, 0, 0)
 ))
-def test_calculator_add_integer(calculator, number1, number2, result):
+def test_calculator_add_integers(calculator, number1, number2, result):
     assert calculator.add(number1, number2) == result
 
 
@@ -22,5 +22,5 @@ def test_calculator_add_integer(calculator, number1, number2, result):
         (-3.2, 2.1, -1.1),
         (0.1, 0.2, 0.3)
 ))
-def test_calculator_add_float(calculator, number1, number2, result):
+def test_calculator_add_floats(calculator, number1, number2, result):
     assert calculator.add(number1, number2) == pytest.approx(result)
