@@ -18,6 +18,7 @@ def fixture_init_calculator(request):
 ))
 def test_calculator_add_integers(calculator, number1, number2, result):
     assert calculator.add(number1, number2) == result
+    calculator.remove_results_file()
 
 
 @pytest.mark.parametrize('number1, number2, result', (
@@ -27,3 +28,4 @@ def test_calculator_add_integers(calculator, number1, number2, result):
 ))
 def test_calculator_add_floats(calculator, number1, number2, result):
     assert calculator.add(number1, number2) == pytest.approx(result)
+    calculator.remove_results_file()
