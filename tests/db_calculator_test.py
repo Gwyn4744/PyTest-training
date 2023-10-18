@@ -2,9 +2,12 @@ from db_calculator import Calculator
 import pytest
 
 
-@pytest.fixture(name='calculator')
-def fixture_init_calculator():
-    calculator = Calculator()
+@pytest.fixture(name='calculator', params=['no_save', 'save'])
+def fixture_init_calculator(request):
+    if request.param == 'no_save':
+        calculator = Calculator()
+    elif request.param == 'save':
+        calculator = Calculator(save_to_file=True)
     return calculator
 
 
