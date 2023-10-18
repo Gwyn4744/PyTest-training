@@ -30,7 +30,7 @@ class Calculator:
     def divide(self, a, b):
         if b == 0:
             if self.save_to_file:
-                lf.save_result_to_file(self.result)
+                self.save_result_to_file(self.result)
             self.result = "Cannot divide by zero"
         else:
             if self.save_to_file:
