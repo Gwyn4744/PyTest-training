@@ -4,6 +4,7 @@ from pathlib import Path
 class Calculator:
     def __init__(self, save_to_file=False):
         self.save_to_file = save_to_file
+        self.result = None
 
 
     def add(self, a, b):
@@ -38,6 +39,13 @@ class Calculator:
             self.result = a / b
 
         return self.result
+    
+
+    def last_result(self):
+        if self.result == None:
+            return f'no activity has been carried out'
+        
+        return f'{self.result}'
         
 
     def save_result_to_file(self, result, filename="results.txt"):
