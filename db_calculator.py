@@ -5,10 +5,20 @@ class Calculator:
     def __init__(self, save_to_file=False):
         self.save_to_file = save_to_file
         self.result = None
+        self.init_last_values_dict()
+
+
+    def init_last_values_dict(self):
+        self.last_values_dict = {}
+        self.last_values_dict['add'] = None
+        self.last_values_dict['subtract'] = None
+        self.last_values_dict['multiply'] = None
+        self.last_values_dict['divide'] = None
 
 
     def add(self, a, b):
         self.result = a + b
+        self.last_values_dict['add'] = self.result
         if self.save_to_file:
             self.save_result_to_file(self.result)
         return self.result
@@ -16,6 +26,7 @@ class Calculator:
 
     def subtract(self, a, b):
         self.result = a - b
+        self.last_values_dict['subtract'] = self.result
         if self.save_to_file:
             self.save_result_to_file(self.result)
         return self.result
@@ -23,6 +34,7 @@ class Calculator:
 
     def multiply(self, a, b):
         self.result = a * b
+        self.last_values_dict['multiply'] = self.result
         if self.save_to_file:
             self.save_result_to_file(self.result)
         return self.result
@@ -37,6 +49,7 @@ class Calculator:
             if self.save_to_file:
                 self.save_result_to_file(self.result)
             self.result = a / b
+            self.last_values_dict['divide'] = self.result
 
         return self.result
     
@@ -68,3 +81,4 @@ class Calculator:
             return f'You do not have permission to delete the {filename} file.'
         except Exception as e:
             return f'An error occurred while deleting file {filename}: {str(e)}'
+        
