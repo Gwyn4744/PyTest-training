@@ -34,3 +34,19 @@ def test_cehck_all_last_results_mp(calculator, monkeypatch):
     assert calculator.last_values_dict['multiply'] == 8
     with pytest.raises(KeyError):
         calculator.last_values_dict['divide'] == 0
+
+
+def test_cehck_all_last_results_mp_2(calculator, monkeypatch):
+    assert calculator.add(4, 2) == 6
+    assert calculator.subtract(4, 2) == 2
+    assert calculator.multiply(4, 2) == 8
+    assert calculator.divide(4, 2) == 2
+
+    with pytest.raises(KeyError):
+        monkeypatch.delitem(calculator.last_values_dict, 'dividee', raising=True)
+    monkeypatch.delitem(calculator.last_values_dict, 'divideee', raising=False)
+
+    assert calculator.last_values_dict['add'] == 6
+    assert calculator.last_values_dict['subtract'] == 2
+    assert calculator.last_values_dict['multiply'] == 8
+    assert calculator.last_values_dict['divide'] == 2
