@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 
 class Calculator:
@@ -6,6 +7,7 @@ class Calculator:
         self.save_to_file = save_to_file
         self.result = None
         self.init_last_values_dict()
+        os.environ['CALCULATOR_MODE'] = 'GLOBAL'
 
 
     def init_last_values_dict(self):
