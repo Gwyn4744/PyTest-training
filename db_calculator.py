@@ -42,10 +42,14 @@ class Calculator:
     
 
     def last_result(self):
+        return f'{self.result}'
+    
+
+    def last_result_verbose(self):
         if self.result == None:
             return f'no activity has been carried out'
         
-        return f'{self.result}'
+        return (f'The last result was {self.last_result()}.')
         
 
     def save_result_to_file(self, result, filename="results.txt"):
