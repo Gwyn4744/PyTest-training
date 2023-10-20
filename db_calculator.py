@@ -6,6 +6,7 @@ class Calculator:
     def __init__(self, save_to_file=False):
         self.save_to_file = save_to_file
         self.result = None
+        self.version = (1,0,0)
         self.init_last_values_dict()
         os.environ['CALCULATOR_MODE'] = 'GLOBAL'
 
